@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      #container {
+        width: 25%;
+        border: 6px solid;
+        margin: auto;
+        height: 600px;
+        margin-top: 100px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 80px);
+        gap: 20px;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: white 0px 7px 29px 0px;
+        background-color: black;
+      }
+      #container > div {
+        border: 1px solid;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        border-radius: 20px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        cursor: pointer; /* Make buttons look clickable */
+      }
+      #container > div:nth-child(1) {
+        background-color: black;
+        grid-column: 1 / span 4;
+        color: antiquewhite;
+      }
+      .black {
+        background-color: black;
+        color: aliceblue;
+      }
+      .red {
+        background-color: red;
+      }
+      .green {
+        background-color: black;
+        color: aliceblue;
+      }
+      #display {
+        grid-column: 1 / span 4;
+        background-color: white;
+        color: black;
+        font-size: 32px;
+        text-align: right;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="display">0</div>
+      <div class="green" onclick="clearDisplay()">AC</div>
+      <div class="green" onclick="deleteLast()">DEL</div>
+      <div class="green" onclick="appendToDisplay('%')">%</div>
+      <div class="green" onclick="appendToDisplay('/')">/</div>
+      <div class="green" onclick="appendToDisplay('7')">7</div>
+      <div class="green" onclick="appendToDisplay('8')">8</div>
+      <div class="green" onclick="appendToDisplay('9')">9</div>
+      <div class="black" onclick="appendToDisplay('*')">*</div>
+      <div class="green" onclick="appendToDisplay('4')">4</div>
+      <div class="green" onclick="appendToDisplay('5')">5</div>
+      <div class="green" onclick="appendToDisplay('6')">6</div>
+      <div class="black" onclick="appendToDisplay('-')">-</div>
+      <div class="green" onclick="appendToDisplay('1')">1</div>
+      <div class="green" onclick="appendToDisplay('2')">2</div>
+      <div class="green" onclick="appendToDisplay('3')">3</div>
+      <div class="black" onclick="appendToDisplay('+')">+</div>
+      <div class="green" onclick="appendToDisplay('0')">0</div>
+      <div class="green" onclick="appendToDisplay('00')">00</div>
+      <div class="green" onclick="appendToDisplay('.')">.</div>
+      <div class="red" onclick="calculateResult()">=</div>
+    </div>
+
+    <script>
+      function appendToDisplay(value) {
+        const display = document.getElementById("display");
+        if (display.innerText === "0") {
+          display.innerText = value; // Replace initial zero
+        } else {
+          display.innerText += value; // Append value
+        }
+      }
+
+      function clearDisplay() {
+        document.getElementById("display").innerText = "0";
+      }
+
+      function deleteLast() {
+        const display = document.getElementById("display");
+        if (display.innerText.length > 1) {
+          display.innerText = display.innerText.slice(0, -1); // Remove last character
+        } else {
+          display.innerText = "0"; // Reset to zero
+        }
+      }
+
+      function calculateResult() {
+        const display = document.getElementById("display");
+        try {
+          display.innerText = eval(display.innerText); // Evaluate the expression
+        } catch (e) {
+          display.innerText = "ERRoR"; // Show error on invalid input
+        }
+      }
+    </script>
+  </body>
+</html>
