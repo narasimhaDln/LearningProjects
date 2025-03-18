@@ -4,17 +4,17 @@ This is a web application built using React, Vite, Ant Design, and React Router.
 file and folder structure.
 
 src/
-├── components/ # Reusable UI components
-│ ├── CompareProducts.jsx # Component for displaying compared products
-│ ├── Navbar.jsx # Navigation bar component
-│ ├── ProductTable.js # Table component for product listing
-│ ├── Sidebar.jsx # Sidebar component for navigation
-├── components/pages/
-│ ├── ComparePage.jsx # Page for showing compared products
-│ ├── ProductDetails.jsx # Page for displaying individual product details
-├── App.jsx # Main entry point and routing logic
-├── main.jsx # Vite entry point for React app
-└── index.css # Global styles
+├── components
+│ ├── CompareProducts.jsx
+│ ├── Navbar.jsx
+│ ├── ProductTable.js
+│ ├── Sidebar.jsx
+├── components/pages
+│ ├── ComparePage.jsx
+│ ├── ProductDetails.jsx
+├── App.jsx
+├── main.jsx
+└── index.css
 
 **Features**
 =>Product Table: Displays a list of products fetched from a dummy API, with the ability to compare selected products.
@@ -38,6 +38,6 @@ Fetch API: For fetching product data from a mock API.
     "react-router-dom": "^6.30.0"
     "tailwindcss": "^4.0.14",
 
-GitHub link::
+GitHub link:https://github.com/narasimhaDln/LearningProjects/tree/main/vite-project
 
-Deployment Link:
+Deployment Link:https://67d8f9b98a105790a4815726--voluble-biscochitos-46f0f5.netlify.app/
